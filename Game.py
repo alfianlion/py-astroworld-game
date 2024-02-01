@@ -2,7 +2,7 @@ from Story import *
 
 class Game:
     state = False
-    gameMenu = { '1':'Start New World', '2':'Credits', '0':'Exit Game' }
+    gameMenu = { '1':'Start New World', '2':'How to play & Credits', '0':'Exit Game' }
     option = ""
     os = ""
     system = any
@@ -14,7 +14,8 @@ class Game:
                 Story.initStory(Game)
             case "2":
                 Game.clearTerminal(Game.os)
-                print("hello3")
+                Story.storyHowTo()
+                Story.storyCredits()
             case "0":
                 print("Existing...")
                 Game.exitGame()
