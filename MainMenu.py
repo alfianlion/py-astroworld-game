@@ -3,6 +3,3 @@ class MainMenu:
         print('Welcome to AstroWorld!\n')
         for key, value in gamemenu.items():
             print(key + ")" + value)
-
-    def menuOption():
-        return print('========= MAIN MENU =========')
