@@ -50,7 +50,7 @@ class Story:
                 Story.toString()
                 Storyline.toPartStory('Intro')
     
-    def storyHowTo():
+    def storyTutorial():
         return print("\n============================ How to Play? ============================\n\nGuess the words that are missing in the sentence.\nYou are able to guess the letters but you have a total of 5 tries.\nYou may guess the word if you know the word.\n\n======================================================================\n")
     
     def storyCredits():

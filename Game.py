@@ -14,7 +14,7 @@ class Game:
                 Story.initStory(Game)
             case "2":
                 Game.clearTerminal(Game.os)
-                Story.storyHowTo()
+                Story.storyTutorial()
                 Story.storyCredits()
             case "0":
                 print("Existing...")
