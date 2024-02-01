@@ -1,3 +1,4 @@
+from Storyline import *
 
 class Story:
     #TODO: Hangman
@@ -12,12 +13,9 @@ class Story:
     setupState = False
     wordList = ['search']
 
-    def storyIntro(Game):
-        Game.clearTerminal(Game.os)
-        Story.toString()
-
     def initStory(Game):
         Story.setupState = True
+        Storyline.initStoryline("fullstory.txt")
         print("Hi, Welcome to AstroWorld Arena. Before we begin, we would like to your name!")
         while Story.setupState == True:    
             Story.playerName = input("Whats your name?  ")
@@ -32,9 +30,9 @@ class Story:
                     Game.option = input("Enter 'y' to continue, 'n' to restart: ")
                     match Game.option.lower():
                         case 'y':
-                            Story.storyIntro(Game)
                             Story.storyState = True
                             Story.setupState = False
+                            return Story.storyIntro(Game)
                         case 'n':
                             Game.clearTerminal(Game.os)   
                             continue
@@ -45,6 +43,18 @@ class Story:
                     continue
                 case _:
                     print("Invalid option. Please enter 'y' or 'n'.")
+
+    def storyIntro(Game):
+            if Story.storyState == True:
+                Game.clearTerminal(Game.os)
+                Story.toString()
+                Storyline.toPartStory('Intro')
+    
+    def storyHowTo():
+        return print("\n============================ How to Play? ============================\n\nGuess the words that are missing in the sentence.\nYou are able to guess the letters but you have a total of 5 tries.\nYou may guess the word if you know the word.\n\n======================================================================\n")
+    
+    def storyCredits():
+        return print("\n============================ Credits =================================\n\nDeveloper: Alfian\nLangauge Used: Python\nGithub Repo: https://github.com/alfianlion/py-astroworld-game/\n\n======================================================================\n")
 
     def toString():
         return print("Player Name:", Story.playerName, "\nAntagonist Name:", Story.antagonistName, "\nStory State:", Story.storyState, "\nSetup State:",Story.setupState)
