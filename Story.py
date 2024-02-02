@@ -1,11 +1,7 @@
 from Storyline import *
 
 class Story:
-    #TODO: Hangman
-    #1. Create a list of words that players are allowed to guess
-    #2. Loop through the list and display it (before working on logic)
-    #3. Randomize a selected word from the list
-    #REMINDER: Story should be in third person
+    
 
     playerName = ""
     antagonistName = ""
