@@ -11,50 +11,89 @@ class Story:
     antagonistName = ""
     storyState = False
     setupState = False
+    option = ""
     wordList = ['search']
 
-    def initStory(Game):
+    def initStory(Util):
         Story.setupState = True
         Storyline.initStoryline("fullstory.txt")
         print("Hi, Welcome to AstroWorld Arena. Before we begin, we would like to your name!")
         while Story.setupState == True:    
             Story.playerName = input("Whats your name?  ")
             print(Story.playerName + "? is that really you?")
-            Game.option = input("Enter 'y' to continue, 'n' to restart: ")
-            match Game.option.lower():
+            Story.option = input("Enter 'y' to continue, 'n' to restart: ")
+            match Story.option.lower():
                 case 'y':
-                    Game.option = ""
-                    Game.clearTerminal(Game.os)
+                    Story.option = ""
+                    Util.clearTerminal(Util.os)
                     Story.antagonistName = input("Who is that someone that you deem as a Rival of your life? ")
                     print(Story.antagonistName + " is your rival?")
-                    Game.option = input("Enter 'y' to continue, 'n' to restart: ")
-                    match Game.option.lower():
+                    Story.option = input("Enter 'y' to continue, 'n' to restart: ")
+                    match Story.option.lower():
                         case 'y':
                             Story.storyState = True
                             Story.setupState = False
-                            return Story.storyIntro(Game)
+                            return Story.storyStart(Util)
                         case 'n':
-                            Game.clearTerminal(Game.os)   
+                            Util.clearTerminal(Util.os)   
                             continue
                         case _:
+                            Util.clearTerminal(Util.os)   
                             print("Invalid option. Please enter 'y' or 'n'.")
                 case 'n':
-                    Game.clearTerminal(Game.os)   
+                    Util.clearTerminal(Util.os)   
                     continue
                 case _:
+                    Util.clearTerminal(Util.os)   
                     print("Invalid option. Please enter 'y' or 'n'.")
 
-    def storyIntro(Game):
+    def storyStart(Util):
+        Story.toString()
+        Story.storyIntro(Util)
+        Story.storyTrigger(Util)
+        Story.storyJourney(Util)
+        Story.storyTrials(Util)
+        Story.storyClimax(Util)
+        Story.storyConclusion(Util)
+    
+    def storyIntro(Util):
             if Story.storyState == True:
-                Game.clearTerminal(Game.os)
-                Story.toString()
+                Util.clearTerminal(Util.os)
                 Storyline.toPartStory('Intro')
+                input("\nEnter any button to continue")
     
-    def storyTutorial():
-        return print("\n============================ How to Play? ============================\n\nGuess the words that are missing in the sentence.\nYou are able to guess the letters but you have a total of 5 tries.\nYou may guess the word if you know the word.\n\n======================================================================\n")
+    def storyTrigger(Util):
+            if Story.storyState == True:
+                Util.clearTerminal(Util.os)
+                Storyline.toPartStory('Trigger')
+                input("\nEnter any button to continue")
+          
+
+    def storyJourney(Util):
+            if Story.storyState == True:
+                Util.clearTerminal(Util.os)
+                Storyline.toPartStory('Journey')
+                input("\nEnter any button to continue")
+
+    def storyTrials(Util):
+            if Story.storyState == True:
+                Util.clearTerminal(Util.os)
+                Storyline.toPartStory('Trials')
+                input("\nEnter any button to continue")
+
     
-    def storyCredits():
-        return print("\n============================ Credits =================================\n\nDeveloper: Alfian\nLangauge Used: Python\nGithub Repo: https://github.com/alfianlion/py-astroworld-game/\n\n======================================================================\n")
+    def storyClimax(Util):
+            if Story.storyState == True:
+                Util.clearTerminal(Util.os)
+                Storyline.toPartStory('Climax')
+                input("\nEnter any button to continue")
+    
+    def storyConclusion(Util):
+            if Story.storyState == True:
+                Util.clearTerminal(Util.os)
+                Storyline.toPartStory('Conclusion')
+                input("\nEnter any button to continue\n")
+                Story.storyState = False
 
     def toString():
         return print("Player Name:", Story.playerName, "\nAntagonist Name:", Story.antagonistName, "\nStory State:", Story.storyState, "\nSetup State:",Story.setupState)

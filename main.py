@@ -1,15 +1,15 @@
-from Game import *
 from MainMenu import *
 from Story import *
+from Util import *
 from os import system, name
 
 if __name__ == "__main__":
-    Game.state = True
-    Game.os = name
-    Game.system = system
-    while Game.state == True:
+    Util.isLauncherRunning = True
+    Util.os = name
+    Util.system = system
+    while Util.isLauncherRunning == True:
         if Story.storyState == False:
-            MainMenu.welcomeMessage(Game.gameMenu)
-            Game.option = input("\nSelect your option: ")
-            Game.gameOption(Game.option)
+            MainMenu.welcomeMessage(Util, MainMenu.optionMenu)
+            MainMenu.option = input("\nSelect your option: ")
+            MainMenu.menuOption(Util, MainMenu.option)
         
