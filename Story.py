@@ -8,7 +8,12 @@ class Story:
     storyState = False
     setupState = False
     option = ""
-    wordList = ['search']
+    wordList = ['struggling','average', 'mocked',
+                'awestruck','ignited','determination',
+                'train','studying','awareness',
+                'setbacks','manage','strength',
+                'astonished','friends','dream',
+                'victory','dedication','self-belief']
 
     def initStory(Util):
         Story.setupState = True
