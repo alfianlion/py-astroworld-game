@@ -1,6 +1,7 @@
 # Py-AstroWorld-Game
 ## Description
     - A python3, text-based Single-player, Story, Quiz, terminal game where you are needed to guess words from the sentence to proceed with the story. 
+	- Still in development, low priority.
 
 ## TODO: Game Development
     [X] Display Main Menu
